@@ -9,6 +9,26 @@ Fy = 210
 Fu = 380
 n = 1.34
 
+def setSteelProperties(Eset, Gset, Fyset, Fuset, coldFormed):
+    global E, G, Fy, Fu, n
+    E = Eset
+    G = Gset
+    Fy = Fyset
+    Fu = Fuset
+
+    if coldFormed:
+        n = 1.34
+    else:
+        n = 2.24
+
+def getNumSymmetry(memberType):
+    if memberType == "Angle":
+        return 0
+    elif memberType == "T":
+        return 1
+    else:
+        return 2
+
 def getQubicRoots(a,b,c,d):
 
     p = c-b^2/3
