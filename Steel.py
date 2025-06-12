@@ -187,4 +187,3 @@ def getBendingResistanceLaterallyUnSupported(bClass, axisBending, memberType, nu
 def getAxialDef(A, L, F):
     delta = ((A/F)/E)*L
     return delta
-

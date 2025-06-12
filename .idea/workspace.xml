@@ -4,11 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d2077732-55bb-40ea-8403-1425674c92c0" name="Changes" comment="Excell input and output, and sorting to find best members">
+    <list default="true" id="d2077732-55bb-40ea-8403-1425674c92c0" name="Changes" comment="Scoring system added for sorting">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Output.xlsx" beforeDir="false" afterPath="$PROJECT_DIR$/Output.xlsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SectionDimentions.xlsx" beforeDir="false" afterPath="$PROJECT_DIR$/SectionDimentions.xlsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Steel.py" beforeDir="false" afterPath="$PROJECT_DIR$/Steel.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SteelCrossSection.py" beforeDir="false" afterPath="$PROJECT_DIR$/SteelCrossSection.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -82,7 +81,7 @@
       <option name="presentableId" value="Default" />
       <updated>1749733180711</updated>
       <workItem from="1749733181752" duration="14994000" />
-      <workItem from="1749749655403" duration="3564000" />
+      <workItem from="1749749655403" duration="4717000" />
     </task>
     <task id="LOCAL-00001" summary="Steel Member Deformation Calculations">
       <option name="closed" value="true" />
@@ -116,7 +115,15 @@
       <option name="project" value="LOCAL" />
       <updated>1749748231224</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="Scoring system added for sorting">
+      <option name="closed" value="true" />
+      <created>1749754343687</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1749754343687</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -138,7 +145,8 @@
     <MESSAGE value="Steel Member helper functions" />
     <MESSAGE value="Steel Cross-Section calculator for I-Section support added" />
     <MESSAGE value="Excell input and output, and sorting to find best members" />
-    <option name="LAST_COMMIT_MESSAGE" value="Excell input and output, and sorting to find best members" />
+    <MESSAGE value="Scoring system added for sorting" />
+    <option name="LAST_COMMIT_MESSAGE" value="Scoring system added for sorting" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/StructuralAnalysisAutomation$Steel.coverage" NAME="Steel Coverage Results" MODIFIED="1749741087855" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />

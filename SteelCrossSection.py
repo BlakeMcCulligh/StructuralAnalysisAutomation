@@ -1,8 +1,13 @@
+from math import pi
 
 def getA(memberType, d, b, t, w):
     A = 0
     if memberType == "I":
         A = 2*b*t+(d-2*t)*w
+    elif memberType == "HSS":
+        b1 = b-2*t
+        d1 = d-2*t
+        A = 2*b*d-b1*d1
     return A
 
 def getI(memberType, axis, d, b, t, w):
@@ -12,50 +17,87 @@ def getI(memberType, axis, d, b, t, w):
             I = 1/12*(b*d**3-(b-w)*(d-2*t)**3)
         else:
             I = 1/12*(2*t*b**3+(d-2*t)*w**3)
+    elif memberType == "HSS":
+        b1 = b - 2 * t
+        d1 = d - 2 * t
+        if axis == "x":
+            I = 1/12*(b*d**3-b1*d1**3)
+        else:
+            I = 1/12*(d*b**3-d1*b1**3)
     return I
 
-def getS(memberType, Axis, d, b, t, w):
+def getS(memberType, axis, d, b, t, w):
     S = 0
     if memberType == "I":
-        if Axis == "x":
+        if axis == "x":
             S = 1/(6*d)*(b*d**3-(b-w)*(d-2*t)**3)
         else:
             S = 1/(6*d)*(2*t*b**3+(d-2*t)*w**3)
+    elif memberType == "HSS":
+        b1 = b - 2 * t
+        d1 = d - 2 * t
+        if axis == "x":
+            S = 1/(6*d)*(b*d**3-b1*d1**3)
+        else:
+            S = 1/(6*b) * (d * b ** 3 - d1 * b1 ** 3)
     return S
 
-def getZ(memberType, Axis, d, b, t, w):
+def getZ(memberType, axis, d, b, t, w):
     Z = 0
     if memberType == "I":
-        if Axis == "x":
+        if axis == "x":
             Z = 1/4*(b*d**3-(b-w)*(d-2*t)**3)
         else:
             Z  = 1/4*(2*t*(b**2-w**2)+d*w**2)
+    elif memberType == "HSS":
+        b1 = b - 2 * t
+        d1 = d - 2 * t
+        if axis == "x":
+            Z = 1/4*(b*d**2-b1*d1**2)
+        else:
+            Z = 1/4*(d*b**2-d1*b1**2)
     return Z
 
 def getJ(memberType, d, b, t, w):
     J = 0
     if memberType == "I":
         J = 1/3*(2*b*t**3+(d-t)*w**3)
+    if memberType == "HSS":
+        Rc = 1.5*t
+        Ap = (d-t)*(b-t)-Rc**2*(4-pi)
+        p = 2*((d-t)+(b-t))-2*Rc*(4-pi)
+        J = 4*Ap**2*t/p
     return J
 
 def getCw(memberType, d, b, t, w):
     Cw = 0
     if memberType == "I":
         Cw = 1/24*(d-t)**2*b**3*t
+    if memberType == "HSS":
+        Cw = 0
     return Cw
 
-def getr(memberType, Axis, I, A):
+def getr(memberType, axis, I, A, b, d, t, w):
     r = 0
     if memberType == "I":
-        if Axis == "x":
+        if axis == "x":
             r=(I/A)**0.5
         else:
             r=(I/A)
+    if memberType == "HSS":
+        b1 = b - 2 * t
+        d1 = d - 2 * t
+        if axis == "x":
+            r = ((b*d**3-b1*d1**3)/(12*A))**0.5
+        else:
+            r = ((d*b**3-d1*b1**3)/(12*A))**0.5
     return r
 
 def getAxisO(memberType, Axis):
     AxisO = 0
     if memberType == "I":
+        AxisO = 0
+    if memberType == "HSS":
         AxisO = 0
     return AxisO
 
@@ -69,8 +111,8 @@ def getCrossSectionProperties(memberType, d, b, t, w):
     Zy = getZ(memberType, "y", d, b, t, w)
     J = getJ(memberType, d, b, t, w)
     Cw = getCw(memberType, d, b, t, w)
-    rx = getr(memberType, "x", Ix, A)
-    ry = getr(memberType, "y", Iy, A)
+    rx = getr(memberType, "x", Ix, A, d, b, t, w)
+    ry = getr(memberType, "y", Iy, A, d, b, t, w)
     xo = getAxisO(memberType, "x")
     yo = getAxisO(memberType, "y")
 
