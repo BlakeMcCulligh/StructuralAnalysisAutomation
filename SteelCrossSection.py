@@ -9,46 +9,46 @@ def getI(memberType, axis, d, b, t, w):
     I = 0
     if memberType == "I":
         if axis == "x":
-            I = 1/12*(b*d^3-(b-w)*(d-2*t)^3)
+            I = 1/12*(b*d**3-(b-w)*(d-2*t)**3)
         else:
-            I = 1/12*(2*t*b^3+(d-2*t)*w^3)
+            I = 1/12*(2*t*b**3+(d-2*t)*w**3)
     return I
 
 def getS(memberType, Axis, d, b, t, w):
     S = 0
     if memberType == "I":
         if Axis == "x":
-            S = 1/(6*d)*(b*d^3-(b-w)*(d-2*t)^3)
+            S = 1/(6*d)*(b*d**3-(b-w)*(d-2*t)**3)
         else:
-            S = 1/(6*d)*(2*t*b^3+(d-2*t)*w^3)
+            S = 1/(6*d)*(2*t*b**3+(d-2*t)*w**3)
     return S
 
 def getZ(memberType, Axis, d, b, t, w):
     Z = 0
     if memberType == "I":
         if Axis == "x":
-            Z = 1/4*(b*d^3-(b-w)*(d-2*t)^3)
+            Z = 1/4*(b*d**3-(b-w)*(d-2*t)**3)
         else:
-            Z  = 1/4*(2*t*(b^2-w^2)+d*w^2)
+            Z  = 1/4*(2*t*(b**2-w**2)+d*w**2)
     return Z
 
 def getJ(memberType, d, b, t, w):
     J = 0
     if memberType == "I":
-        J = 1/3*(2*b*t^3+(d-t)*w^3)
+        J = 1/3*(2*b*t**3+(d-t)*w**3)
     return J
 
 def getCw(memberType, d, b, t, w):
     Cw = 0
     if memberType == "I":
-        Cw = 1/24*(d-t)^2*b^3*t
+        Cw = 1/24*(d-t)**2*b**3*t
     return Cw
 
 def getr(memberType, Axis, I, A):
     r = 0
     if memberType == "I":
         if Axis == "x":
-            r=(I/A)^0.5
+            r=(I/A)**0.5
         else:
             r=(I/A)
     return r
