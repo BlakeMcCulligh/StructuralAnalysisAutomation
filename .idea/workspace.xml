@@ -4,9 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d2077732-55bb-40ea-8403-1425674c92c0" name="Changes" comment="Support added for Pipes and T-sections">
-      <change afterPath="$PROJECT_DIR$/Truss.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/TrussTest.py" afterDir="false" />
+    <list default="true" id="d2077732-55bb-40ea-8403-1425674c92c0" name="Changes" comment="System to solve forces in trusses added">
+      <change afterPath="$PROJECT_DIR$/WoodJoint.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -47,26 +46,27 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "ModuleVcsDetector.initialDetectionPerformed": "true",
-    "Python.Steel.executor": "Run",
-    "Python.SteelCrossSection.executor": "Run",
-    "Python.Truss.executor": "Run",
-    "Python.TrussTest.executor": "Run",
-    "Python.main.executor": "Run",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.git.unshallow": "true",
-    "git-widget-placeholder": "master",
-    "last_opened_file_path": "C:/Users/blake/OneDrive/Desktop/Python Workspace/StructuralAnalysisAutomation",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
+    &quot;Python.Steel.executor&quot;: &quot;Run&quot;,
+    &quot;Python.SteelCrossSection.executor&quot;: &quot;Run&quot;,
+    &quot;Python.Truss.executor&quot;: &quot;Run&quot;,
+    &quot;Python.TrussTest.executor&quot;: &quot;Run&quot;,
+    &quot;Python.WoodJoint.executor&quot;: &quot;Run&quot;,
+    &quot;Python.main.executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/blake/OneDrive/Desktop/Python Workspace/StructuralAnalysisAutomation&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
@@ -88,6 +88,11 @@
       <workItem from="1749836952219" duration="7284000" />
       <workItem from="1749844329925" duration="21000" />
       <workItem from="1749859725977" duration="4112000" />
+      <workItem from="1750118663958" duration="3461000" />
+      <workItem from="1750447005176" duration="2417000" />
+      <workItem from="1750683623339" duration="6629000" />
+      <workItem from="1750877231300" duration="3133000" />
+      <workItem from="1750955977823" duration="964000" />
     </task>
     <task id="LOCAL-00001" summary="Steel Member Deformation Calculations">
       <option name="closed" value="true" />
@@ -145,7 +150,15 @@
       <option name="project" value="LOCAL" />
       <updated>1749757861430</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="System to solve forces in trusses added">
+      <option name="closed" value="true" />
+      <created>1750122101318</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1750122101318</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -170,13 +183,15 @@
     <MESSAGE value="Scoring system added for sorting" />
     <MESSAGE value="Support added for HSS" />
     <MESSAGE value="Support added for Pipes and T-sections" />
-    <option name="LAST_COMMIT_MESSAGE" value="Support added for Pipes and T-sections" />
+    <MESSAGE value="System to solve forces in trusses added" />
+    <option name="LAST_COMMIT_MESSAGE" value="System to solve forces in trusses added" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/StructuralAnalysisAutomation$TrussTest.coverage" NAME="TrussTest Coverage Results" MODIFIED="1749863668103" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/StructuralAnalysisAutomation$WoodJoint.coverage" NAME="WoodJoint Coverage Results" MODIFIED="1750956900091" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/StructuralAnalysisAutomation$TrussTest.coverage" NAME="TrussTest Coverage Results" MODIFIED="1750120034238" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/StructuralAnalysisAutomation$Steel.coverage" NAME="Steel Coverage Results" MODIFIED="1749741087855" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/StructuralAnalysisAutomation$SteelCrossSection.coverage" NAME="SteelCrossSection Coverage Results" MODIFIED="1749757828395" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
-    <SUITE FILE_PATH="coverage/StructuralAnalysisAutomation$Truss.coverage" NAME="Truss Coverage Results" MODIFIED="1749862473475" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/StructuralAnalysisAutomation$Truss.coverage" NAME="Truss Coverage Results" MODIFIED="1750122027746" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/StructuralAnalysisAutomation$main.coverage" NAME="main Coverage Results" MODIFIED="1749755899238" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
 </project>

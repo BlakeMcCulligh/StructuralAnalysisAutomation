@@ -154,5 +154,10 @@ def getCrossSectionProperties(memberType, d, b, t, w):
     ry = getr(memberType, "y", Iy, A, d, b, t, w)
     xo = getAxisO(memberType, "x")
     yo = getAxisO(memberType, "y")
+    NumSymetry = 0
+    if memberType == "I" or memberType == "HSS" or memberType == "Pipe":
+        NumSymetry = 2
+    elif memberType == "T":
+        NumSymetry = 1
 
-    return A, Ix, Iy, Sx, Sy, Zx, Zy, J, Cw, rx, ry, xo, yo
+    return NumSymetry, A, Ix, Iy, Sx, Sy, Zx, Zy, J, Cw, rx, ry, xo, yo

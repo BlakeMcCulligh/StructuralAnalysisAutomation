@@ -1,5 +1,5 @@
 from SteelCrossSection import getCrossSectionProperties
-import Steel
+import SteelCode
 import pandas as pd
 import openpyxl
 

@@ -3,24 +3,6 @@ from math import acos
 from math import cos
 from math import inf
 
-E = 200000
-G = 77000
-Fy = 210
-Fu = 380
-n = 1.34
-
-def setSteelProperties(Eset, Gset, Fyset, Fuset, coldFormed):
-    global E, G, Fy, Fu, n
-    E = Eset
-    G = Gset
-    Fy = Fyset
-    Fu = Fuset
-
-    if coldFormed:
-        n = 1.34
-    else:
-        n = 2.24
-
 def getNumSymmetry(memberType):
     if memberType == "Angle":
         return 0
@@ -53,7 +35,7 @@ def getQubicRoots(a,b,c,d):
 
     return r1, r2, r3
 
-def getFe(numSymmetry, K, L, rx, ry, xo, yo, A, J, Cw):
+def getFe(numSymmetry, K, L, rx, ry, xo, yo, A, J, Cw, E, G):
     ro2 = xo ** 2 + yo ** 2 + rx ** 2 + ry ** 2
 
     Fex = ((pi) ** 2) * E / (K * L/rx)
@@ -77,14 +59,14 @@ def getFe(numSymmetry, K, L, rx, ry, xo, yo, A, J, Cw):
         return Fe
 
 
-def getCompressionResistance(numSymmetry, K, L, rx, ry, xo, yo, A, J, Cw):
-    Fe = getFe(numSymmetry,K,L,rx,ry,xo,yo,A,J,Cw)
+def getCompressionResistance(numSymmetry, K, L, rx, ry, xo, yo, A, J, Cw, Fy, n, E, G):
+    Fe = getFe(numSymmetry,K,L,rx,ry,xo,yo,A,J,Cw, E, G)
     Lambda = (Fy/Fe)**0.5
     Cr = 0.9*A*Fy/(1+Lambda**(2*n))**(1/n)
     return Cr
 
 # Ag: Gross Area
-def getTensionResistance(Ag):
+def getTensionResistance(Ag, Fy):
     Tr = 0.9*Ag*Fy
     return Tr
 
@@ -93,7 +75,7 @@ def getTensionResistance(Ag):
 #w:
 #stiffenedWeb: is there stiffeners
 #a: (distance between stiffeners)
-def getShearResistance(Aw, h, w, stiffenedWeb, a):
+def getShearResistance(Aw, h, w, stiffenedWeb, a, Fy):
     if stiffenedWeb:
 
         if a/h<1:
@@ -124,14 +106,14 @@ def getShearResistance(Aw, h, w, stiffenedWeb, a):
     Vr = 0.9*Aw*Fs
     return Vr
 
-def getBendingResistanceLaterallySupported(bClass, Z, S):
+def getBendingResistanceLaterallySupported(bClass, Z, S, Fy):
 
     if bClass == 1 | bClass == 2:
         Mr = 0.9*Z*Fy
     else:
         Mr = 0.9*S*Fy
 
-def getBendingResistanceLaterallyUnSupported(bClass, axisBending, memberType, numSymmetry, L, Z, S, Iy, Ix, J, Cw, b, t, h, w, d, Mmax, Ma, Mb, Mc):
+def getBendingResistanceLaterallyUnSupported(bClass, axisBending, memberType, numSymmetry, L, Z, S, Iy, Ix, J, Cw, b, t, h, w, d, Mmax, Ma, Mb, Mc, E, G, Fy):
     w2 = (4*Mmax)/(Mmax**2+4*Ma**2+7*Mb**2+4*Mc**2)**0.5
     if w2>2.5:
        w2 = 2.5
@@ -184,6 +166,6 @@ def getBendingResistanceLaterallyUnSupported(bClass, axisBending, memberType, nu
             Mu = w2*pi**2*E*Iy/(2*L**2)*(Bx+(Bx**2+4*(G*J*L**2/(pi**2*E*Iy)+Cw/Iy))**0.5)
             Mr = 0.9*Mu
 
-def getAxialDef(A, L, F):
+def getAxialDef(A, L, F, E):
     delta = ((A/F)/E)*L
     return delta
