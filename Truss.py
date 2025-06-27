@@ -1,6 +1,7 @@
 import numpy as np
 from SteelCrossSection import getCrossSectionProperties
 import SteelCode
+import math
 
 class Joint(object):
 
@@ -57,8 +58,8 @@ class Member(object):
         self.K = 1
         self.L = ((J2.x-J1.x)**2 + (J2.y-J1.y)**2)**0.5
         self.usageRatio = None
-        self.crossSection = None
         self.crossSection = CrossSection(MemberType, d, b, t, w)
+        self.deflection = None
 
         J1.addMember(self)
         J2.addMember(self)
@@ -66,6 +67,12 @@ class Member(object):
     def getResistance(self):
         self.Cr = SteelCode.getCompressionResistance(self.crossSection.NumSymetry, self.K, self.L, self.crossSection.rx, self.crossSection.ry, self.crossSection.xo, self.crossSection.yo, self.crossSection.A, self.crossSection.J, self.crossSection.Cw, self.crossSection.Fy, self.crossSection.n, self.crossSection.E, self.crossSection.G)
         self.Tr = SteelCode.getTensionResistance(self.crossSection.A, self.crossSection.Fy)
+
+    def getDeflection(self):
+        self.deflection = ((self.crossSection.A / self.force) / self.crossSection.E) * self.L
+        if self.usageRatio > 1:
+            self.deflection = math.inf
+        return self.deflection
 
 class Truss(object):
     def __init__(self):
@@ -201,6 +208,10 @@ class Truss(object):
             else:
                 self.listMembers[i].usageRatio = -1 *self.listMembers[i].force / self.listMembers[i].Cr
 
+    def solveDeflections(self):
+        for i in range(len(self.listMembers)):
+            self.listMembers[i].getDeflection()
+
     def printForces(self):
         print("Member Forces:")
         for m, f in self.forceSolutions['members'].items():
@@ -221,6 +232,14 @@ class Truss(object):
             else:
                 print(self.listMemberNames[i],": " ,self.listMembers[i].usageRatio)
 
+    def printDeflections(self):
+        print("\nDeflections: ")
+        for i in range(len(self.listMembers)):
+            if self.listMembers[i].deflection > self.listMembers[i].L / 360:
+                print(self.listMemberNames[i], ": ", self.listMembers[i].deflection, " - Fail")
+            else:
+                print(self.listMemberNames[i],": ", self.listMembers[i].deflection)
+
 #Test
 testTruss = Truss()
 testTruss.addJoint(0, 0)
@@ -229,10 +248,12 @@ testTruss.addJoint(2, 0.5)
 testTruss.addMember(0,1, "I", 100, 15, 2, 2)
 testTruss.addMember(0,2, "I", 100, 15, 2, 2)
 testTruss.addMember(1,2, "I", 100, 15, 2, 2)
-testTruss.addLoad(2,0,-10000)
+testTruss.addLoad(2,0,-100000)
 testTruss.addRestraints(0,True,True)
 testTruss.addRestraints(1,False,True)
 forceSolutions = testTruss.solveForces()
 testTruss.printForces()
 testTruss.solveUsageRatio()
 testTruss.printUsageRatios()
+testTruss.solveDeflections()
+testTruss.printDeflections()
