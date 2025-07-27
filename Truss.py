@@ -12,7 +12,6 @@ class Joint(object):
 
         self.loadx = None
         self.loady = None
-        self.solved = False
         self.x = x
         self.y = y
 
@@ -36,7 +35,7 @@ class CrossSection(object):
         self.Fu = 380
         self.n = 1.34
         self.NumSymetry = None
-        [self.NumSymetry, self.A, self.Ix, self.Iy, self.Sx, self.Sy, self.Zx, self.Zy, self.J, self.Cw, self.rx, self.ry, self.xo, self.yo] = getCrossSectionProperties(memberType, d, b, t, w)
+        [self.NumSymetry, self.bClassX, self.bClassY, self.A, self.Ix, self.Iy, self.Sx, self.Sy, self.Zx, self.Zy, self.J, self.Cw, self.rx, self.ry, self.xo, self.yo] = getCrossSectionProperties(memberType, d, b, t, w)
 
     def setMaterialProperties(self, E, G, Fy, Fu, n):
         self.E = E

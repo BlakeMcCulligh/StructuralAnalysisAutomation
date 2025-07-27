@@ -140,6 +140,57 @@ def getAxisO(memberType, Axis):
         AxisO = 0
     return AxisO
 
+def getbClass(memberType, Axis, d, b, t, Fy):
+    bClass = 1
+    if memberType == "I" and Axis == "x":
+        if b*Fy**0.5/t <= 145:
+            bClass = 1
+        elif b*Fy**0.5/t <= 170:
+            bClass = 2
+        elif b*Fy**0.5/t <= 200:
+            bClass = 3
+        else:
+            bClass = 4
+    elif memberType == "T" or memberType == "I":
+        if b*Fy**0.5/t <= 145:
+            bClass = 1
+        elif b*Fy**0.5/t <= 170:
+            bClass = 2
+        elif b*Fy**0.5/t <= 340:
+            bClass = 3
+        else:
+            bClass = 4
+    elif memberType == "HSS" and Axis == "x":
+        if b*Fy**0.5/t <= 420:
+            bClass = 1
+        elif b*Fy**0.5/t <= 525:
+            bClass = 2
+        elif b*Fy**0.5/t <= 670:
+            bClass = 3
+        else:
+            bClass = 4
+    elif memberType == "HSS" and Axis == "y":
+        if d * Fy ** 0.5 / t <= 420:
+            bClass = 1
+        elif d * Fy ** 0.5 / t <= 525:
+            bClass = 2
+        elif d * Fy ** 0.5 / t <= 670:
+            bClass = 3
+        else:
+            bClass = 4
+    elif memberType == "Pipe":
+        if d*Fy/t <= 13000:
+            bClass = 1
+        elif d*Fy/t <= 18000:
+            bClass = 2
+        elif d*Fy/t <= 66000:
+            bClass = 3
+        else:
+            bClass = 4
+
+    return bClass
+
+
 def getCrossSectionProperties(memberType, d, b, t, w):
     A = getA(memberType, d, b, t, w)
     Ix = getI(memberType, "x", A, d, b, t, w)
@@ -160,4 +211,7 @@ def getCrossSectionProperties(memberType, d, b, t, w):
     elif memberType == "T":
         NumSymetry = 1
 
-    return NumSymetry, A, Ix, Iy, Sx, Sy, Zx, Zy, J, Cw, rx, ry, xo, yo
+    bClassX = getbClass(memberType, "x", d, b, t, w)
+    bClassY = getbClass(memberType, "y", d, b, t, w)
+
+    return NumSymetry, bClassX, bClassY, A, Ix, Iy, Sx, Sy, Zx, Zy, J, Cw, rx, ry, xo, yo

@@ -113,7 +113,7 @@ def getBendingResistanceLaterallySupported(bClass, Z, S, Fy):
     else:
         Mr = 0.9*S*Fy
 
-def getBendingResistanceLaterallyUnSupported(bClass, axisBending, memberType, numSymmetry, L, Z, S, Iy, Ix, J, Cw, b, t, h, w, d, Mmax, Ma, Mb, Mc, E, G, Fy):
+def getBendingResistanceLaterallyUnSupported(bClass, memberType, numSymmetry, L, Z, S, Iy, Ix, J, Cw, b, t, h, w, d, Mmax, Ma, Mb, Mc, E, G, Fy):
     w2 = (4*Mmax)/(Mmax**2+4*Ma**2+7*Mb**2+4*Mc**2)**0.5
     if w2>2.5:
        w2 = 2.5
