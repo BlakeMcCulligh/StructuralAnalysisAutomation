@@ -1,6 +1,7 @@
 import tkinter as tk
 from tkinter import ttk
 import DrawLine
+import SelectTool
 
 class SketchApp:
     def __init__(self, root):
@@ -21,6 +22,7 @@ class SketchApp:
         #SketchObjects
         self.listLines = []
         self.listPoints = []
+        self.set_tool("select")
 
         # things that are being watched for on the canvas
         self.canvas.bind("<Button-1>", self.on_click_Left)
@@ -39,10 +41,8 @@ class SketchApp:
         self.toolbarFrame.append(tk.Frame(self.toolbar[0], bg="#ddd"))
         self.toolbarFrame[0].pack(side=tk.TOP, fill=tk.X)
 
+        tk.Button(self.toolbarFrame[0], text="select", command=lambda: self.set_tool("select")).pack(side=tk.LEFT)
         tk.Button(self.toolbarFrame[0], text="Line", command=lambda: self.set_tool("line")).pack(side=tk.LEFT)
-        tk.Button(self.toolbarFrame[0], text="Dimension", command=lambda: self.set_tool("dimension")).pack(side=tk.LEFT)
-        tk.Button(self.toolbarFrame[0], text="Constraint", command=lambda: self.set_tool("constraint")).pack(side=tk.LEFT)
-
 
     def set_tool(self, newTool):
         self.currentTool.set(newTool)
@@ -55,7 +55,9 @@ class SketchApp:
         currentTool = self.currentTool.get()
         window = self
         # needs implemented
-        if currentTool == "line":
+        if currentTool == "select":
+            SelectTool.click(self.canvas, event.x, event.y)
+        elif currentTool == "line":
             DrawLine.draw(window, self.canvas, event.x, event.y)
 
 root = tk.Tk()
