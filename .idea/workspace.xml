@@ -4,10 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d2077732-55bb-40ea-8403-1425674c92c0" name="Changes" comment="2D drawing Lines added">
-      <change afterPath="$PROJECT_DIR$/2D drawing/Relations.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/2D drawing/SelectTool.py" afterDir="false" />
+    <list default="true" id="d2077732-55bb-40ea-8403-1425674c92c0" name="Changes" comment="HSS built-up Cross-Section Calculater Added">
+      <change afterPath="$PROJECT_DIR$/DirectStiffnessMethod/Truss.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/2D drawing/Relations.py" beforeDir="false" afterPath="$PROJECT_DIR$/2D drawing/Relations.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/2D drawing/SelectTool.py" beforeDir="false" afterPath="$PROJECT_DIR$/2D drawing/SelectTool.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/2D drawing/SketchObjects.py" beforeDir="false" afterPath="$PROJECT_DIR$/2D drawing/SketchObjects.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/2D drawing/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/2D drawing/__init__.py" afterDir="false" />
     </list>
@@ -49,32 +50,41 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "ModuleVcsDetector.initialDetectionPerformed": "true",
-    "Python.DrawLine.executor": "Run",
-    "Python.Frame.executor": "Run",
-    "Python.SelectTool.executor": "Run",
-    "Python.SketchObjects.executor": "Run",
-    "Python.Steel.executor": "Run",
-    "Python.SteelCrossSection.executor": "Run",
-    "Python.Truss.executor": "Run",
-    "Python.TrussTest.executor": "Run",
-    "Python.WoodJoint.executor": "Run",
-    "Python.__init__.executor": "Run",
-    "Python.main.executor": "Run",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.git.unshallow": "true",
-    "git-widget-placeholder": "master",
-    "last_opened_file_path": "C:/Users/blake/OneDrive/Desktop/Python Workspace/StructuralAnalysisAutomation",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
+    &quot;Python.CrossSection.executor&quot;: &quot;Run&quot;,
+    &quot;Python.DrawLine.executor&quot;: &quot;Run&quot;,
+    &quot;Python.Frame.executor&quot;: &quot;Run&quot;,
+    &quot;Python.Relations.executor&quot;: &quot;Run&quot;,
+    &quot;Python.SelectTool.executor&quot;: &quot;Run&quot;,
+    &quot;Python.ShearMomentCalculator.executor&quot;: &quot;Run&quot;,
+    &quot;Python.SketchObjects.executor&quot;: &quot;Run&quot;,
+    &quot;Python.Steel.executor&quot;: &quot;Run&quot;,
+    &quot;Python.SteelCrossSection.executor&quot;: &quot;Run&quot;,
+    &quot;Python.Truss.executor&quot;: &quot;Run&quot;,
+    &quot;Python.TrussTest.executor&quot;: &quot;Run&quot;,
+    &quot;Python.WoodJoint.executor&quot;: &quot;Run&quot;,
+    &quot;Python.__init__.executor&quot;: &quot;Run&quot;,
+    &quot;Python.main.executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/blake/OneDrive/Desktop/Python Workspace/StructuralAnalysisAutomation&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\blake\OneDrive\Desktop\Python Workspace\StructuralAnalysisAutomation" />
+      <recent name="C:\Users\blake\OneDrive\Desktop\Python Workspace\StructuralAnalysisAutomation\BeamAnalysis" />
+    </key>
+  </component>
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
@@ -192,7 +202,31 @@
       <option name="project" value="LOCAL" />
       <updated>1753649540176</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="2D drawing selection added, work has started on relations">
+      <option name="closed" value="true" />
+      <created>1753731319897</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1753731319897</updated>
+    </task>
+    <task id="LOCAL-00013" summary="Beam Shear and Moment Calculater Added">
+      <option name="closed" value="true" />
+      <created>1754509017496</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1754509017496</updated>
+    </task>
+    <task id="LOCAL-00014" summary="HSS built-up Cross-Section Calculater Added">
+      <option name="closed" value="true" />
+      <created>1754583592057</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1754583592057</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -221,7 +255,10 @@
     <MESSAGE value="Wood Joints suport started to be added, and truss usage ratios added" />
     <MESSAGE value="Deflection Calculations Added" />
     <MESSAGE value="2D drawing Lines added" />
-    <option name="LAST_COMMIT_MESSAGE" value="2D drawing Lines added" />
+    <MESSAGE value="2D drawing selection added, work has started on relations" />
+    <MESSAGE value="Beam Shear and Moment Calculater Added" />
+    <MESSAGE value="HSS built-up Cross-Section Calculater Added" />
+    <option name="LAST_COMMIT_MESSAGE" value="HSS built-up Cross-Section Calculater Added" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/StructuralAnalysisAutomation$WoodJoint.coverage" NAME="WoodJoint Coverage Results" MODIFIED="1750958696082" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
