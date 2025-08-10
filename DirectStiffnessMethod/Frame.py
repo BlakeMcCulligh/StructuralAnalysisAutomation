@@ -5,11 +5,11 @@ from matplotlib import pyplot as plt
 # input:
 # nodexy : [[x1,y1],[x2,y2]]
 # E : Young's modulus
-# A : Corss-section Area
+# A : Cross-section Area
 # I : Second moment of Area
 def FrameElement2D(nodexy, E, A, I):
     E1 = np.array([(nodexy[1][0] - nodexy[0][0]), (nodexy[1][1] - nodexy[0][1])])
-    L = np.linalg.norm(E1)
+    L = float(np.linalg.norm(E1))
     E1 = E1 / L
     E2 = np.array([-E1[1], E1[0]])
     Kel_bend = np.array([[12 * E * I / (L ** 3), 6 * E * I / (L ** 2), -12 * E * I / (L ** 3), 6 * E * I / (L ** 2)],
@@ -55,10 +55,11 @@ def FrameElement2D(nodexy, E, A, I):
 # Nel : number of elements
 # nodes : nodes
 # Nnodes : number of nodes
-# E : youngs modulus
-# A : cross section area
+# E : Young's Modulus
+# A : cross-section area
 # I : second moment of Area
-def MakeGlobalStiffnessMatrix(K, elems, Nel, nodes, Nnodes, E, A, I ):
+# noinspection SpellCheckingInspection
+def MakeGlobalStiffnessMatrix(K, elems, Nel, nodes, E, A, I ):
     for i in range(Nel):
         elnodes = [elems[i][0]-1, elems[i][1]-1]
         nodexy = [[nodes[elnodes[0]][0], nodes[elnodes[0]][1]], [nodes[elnodes[1]][0], nodes[elnodes[1]][1]]]
@@ -76,6 +77,7 @@ def MakeGlobalStiffnessMatrix(K, elems, Nel, nodes, Nnodes, E, A, I ):
 # u : deformations
 # doffree : joints that are not restrained
 # dofspec : joints that are restrained
+# noinspection SpellCheckingInspection
 def solveUF(K, f, u, doffree, dofspec):
     u[doffree] = np.linalg.solve(K[np.ix_(doffree, doffree)], f[doffree] - K[np.ix_(doffree, dofspec)] @ u[dofspec])
     f[dofspec] = K[dofspec, :].dot(u)
@@ -105,14 +107,14 @@ def solve(nodes, elems, E, A, I, bcs, loads):
     for i in range(len(loads)):
         f[3 * (loads[i][0] - 1) + loads[i][1] - 1] = loads[i][2]
 
-    K = MakeGlobalStiffnessMatrix(K, elems, Nel, nodes, Nnodes, E, A, I)
+    K = MakeGlobalStiffnessMatrix(K, elems, Nel, nodes, E, A, I)
     u, f = solveUF(K, f, u, doffree, dofspec)
 
     print("Deformation: ", u)
     print("Forces in each member: ", f)
     return u, f
 
-def printResults(nodes, elems, u, Mag, ndivs):
+def printResults(nodes, elems, u, mag, numDivs):
     Nel = len(elems)
     Nnodes = len(nodes)
     # ploting
@@ -125,13 +127,12 @@ def printResults(nodes, elems, u, Mag, ndivs):
 
     # deformed
     for i in range(Nnodes):
-        plt.plot(nodes[i][0] + Mag * u[i * 3], nodes[i][1] + Mag * u[i * 3 + 1], 'o', color='red')
+        plt.plot(nodes[i][0] + mag * u[i * 3], nodes[i][1] + mag * u[i * 3 + 1], 'o', color='red')
 
     for i in range(Nel):
         elnodes = [elems[i][0] - 1, elems[i][1] - 1]
-        E1 = [(nodes[elnodes[1]][0] - nodes[elnodes[0]][0]), (nodes[elnodes[1]][1] - nodes[elnodes[0]][1])]
-
-        le = np.linalg.norm(E1)
+        E1 = np.array([(nodes[elnodes[1]][0] - nodes[elnodes[0]][0]), (nodes[elnodes[1]][1] - nodes[elnodes[0]][1])])
+        le = float(np.linalg.norm(E1))
         E1 = E1 / le
         E1 = E1.tolist()
         E2 = [-E1[1], E1[0]]
@@ -148,31 +149,31 @@ def printResults(nodes, elems, u, Mag, ndivs):
         Tmatrix = np.append(TmUP, TmDown, axis=0)
         eldispLOC = Tmatrix @ eldisp
         plotpts = []
-        for j in range(ndivs + 1):
-            xi = (j) / ndivs
+        for j in range(numDivs + 1):
+            xi = j / numDivs
             xdispLOC = eldispLOC[0] * (1 - xi) + eldispLOC[3] * xi
             ydispLOC = eldispLOC[1] * (1 - 3 * xi ** 2 + 2 * xi ** 3) + eldispLOC[4] * (3 * xi ** 2 - 2 * xi ** 3) + \
                        eldispLOC[2] * le * (xi - 2 * xi ** 2 + xi ** 3) + eldispLOC[5] * le * (-xi ** 2 + xi ** 3)
 
             Q = np.array([[Qrot[0][0], Qrot[0][1]], [Qrot[1][0], Qrot[1][1]]])
             xydisp = (Q.T @ np.array([xdispLOC, ydispLOC]))
-            x = nodes[elems[i][0] - 1][0] + xi * le * E1[0] + Mag * xydisp[0]
-            y = nodes[elems[i][0] - 1][1] + xi * le * E1[1] + Mag * xydisp[1]
+            x = nodes[elems[i][0] - 1][0] + xi * le * E1[0] + mag * xydisp[0]
+            y = nodes[elems[i][0] - 1][1] + xi * le * E1[1] + mag * xydisp[1]
             plotpts.append([x.tolist()[0], y.tolist()[0]])
         for j in range(len(plotpts) - 1):
             plt.plot([plotpts[j][0], plotpts[j + 1][0]], [plotpts[j][1], plotpts[j + 1][1]], color='red')
     plt.show()
 
 # inputs
-nodes = [[0.0,0.0],[0.0,2.0],[1.5,3.0],[3.0,2.0],[3.0,0.0]]
-elems =  [[1,2],[2,3],[3,4],[4,5]]
+Nodes = [[0.0,0.0],[0.0,2.0],[1.5,3.0],[3.0,2.0],[3.0,0.0]]
+Elems =  [[1,2],[2,3],[3,4],[4,5]]
 E = [2e11, 2e11, 2e11, 2e11]
 A = [1e-2, 1e-2, 1e-2, 1e-2]
 I = [5e-6, 5e-6, 5e-6, 5e-6]
-bcs = [[1,1,0], [1,2,0], [5,1,0], [5,2,0]]
-loads = [[3,2,-20000]]
+Bcs = [[1,1,0], [1,2,0], [5,1,0], [5,2,0]]
+Loads = [[3,2,-20000]]
 
-u, f = solve(nodes, elems, E, A, I, bcs, loads)
+U, F = solve(Nodes, Elems, E, A, I, Bcs, Loads)
 Mag = 20
-ndivs = 20
-printResults(nodes, elems, u, Mag, ndivs)
+Ndivs = 20
+printResults(Nodes, Elems, U, Mag, Ndivs)
