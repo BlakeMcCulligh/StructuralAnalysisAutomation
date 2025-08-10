@@ -1,5 +1,6 @@
 from math import sqrt
 from SketchObjects import Line, Point, ListLines, ListPoints
+import SelectTool
 ListRelations = []
 ListDimentions = []
 
@@ -136,3 +137,69 @@ def setRelations():
                     ListRelations[j].setP(1)
                 elif ListRelations[j].p2.Index == i:
                     ListRelations[j].setP(2)
+
+def addHorizontal(canvas, x, y):
+    line = SelectTool.clickOnlyLine(canvas, x, y)
+    line.horizontal = True
+    line.vertical = False
+    line.select(canvas)
+    print("Horizontal")
+
+def addVertical(canvas, x, y):
+    line = SelectTool.clickOnlyLine(canvas, x, y)
+    line.horizontal = False
+    line.vertical = True
+    line.select(canvas)
+    print("Veritcal")
+
+l1 = None
+p1 = None
+
+def addParallel(canvas, x, y):
+    global l1
+    if l1 is None:
+        l1 = SelectTool.clickOnlyLine(canvas, x, y)
+    else:
+        l2 = SelectTool.clickOnlyLine(canvas, x, y)
+        if l1 != l2:
+            i1 = ListLines.index(l1)
+            i2 = ListLines.index(l2)
+            l1.ListParallelIndex.append(i2)
+            l2.ListParallelIndex.append(i1)
+            l1.select(canvas)
+            l2.select(canvas)
+            l1 = None
+        else:
+            l1.select(canvas)
+
+def addPerpendicualer(canvas, x, y):
+    global l1
+    if l1 is None:
+        l1 = SelectTool.clickOnlyLine(canvas, x, y)
+    else:
+        l2 = SelectTool.clickOnlyLine(canvas, x, y)
+        if l1 != l2:
+            i1 = ListLines.index(l1)
+            i2 = ListLines.index(l2)
+            l1.ListPerpendicularIndex.append(i2)
+            l2.ListPerpendicularIndex.append(i1)
+            l1.select(canvas)
+            l2.select(canvas)
+            l1 = None
+        else:
+            l1.select(canvas)
+
+def addEqual(canvas, x, y):
+    a=1
+
+def addColinear(canvas, x, y):
+    a=1
+
+def addCoincidence(canvas, x, y):
+    a=1
+
+def addDimentions(canvas, x, y):
+    a=1
+
+def addFixed(canvas, x, y):
+    a=1
