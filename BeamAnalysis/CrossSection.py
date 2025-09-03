@@ -261,3 +261,14 @@ print(Base.Zx *2)
 Mr = Base.getMomentResistance() * 2
 
 print(Mr)
+
+Post = CrossSection()
+Post.addSection(152.4, 101.6, 6.35, 2690, 23.2, 8.45*10**6, 4.5*10**6, 111*10**3, 88.6*10**3, 56, 40.9, 136*10**3, 103*10**3, 9530*10**3, "X")
+Post.addSection(101.6, 101.6, 6.35, 2110, 18.3, 3.17*10**6, 3.17*10**6, 62.3*10**3, 62.3*10**3, 38.7, 38.7, 74.8*10**3, 74.8*10**3, 5170*10**3, "X")
+Post.addSection(152.4, 101.6, 6.35, 2690, 23.2, 8.45*10**6, 4.5*10**6, 111*10**3, 88.6*10**3, 56, 40.9, 136*10**3, 103*10**3, 9530*10**3, "X")
+Post.solve()
+print("Post Ix: ", Post.Ix)
+print("Post Iy: ", Post.Iy)
+
+Mr = Post.getMomentResistance()
+print("Post Mr: ", Mr)

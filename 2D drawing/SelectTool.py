@@ -46,7 +46,7 @@ def click(canvas, x, y):
 
 def clickOnlyLine(canvas, x, y):
     for i in range(len(ListLines)):
-        dist = shortest_distance_point_to_line([ListLines[i].x1, ListLines[i].y1], [ListLines[i].x2, ListLines[i].y2],
+        dist = shortest_distance_point_to_line([ListLines[i].p1.Xold, ListLines[i].p1.Yold], [ListLines[i].p2.Xold, ListLines[i].p2.Yold],
                                                [x, y])
         if dist < 5:
             ListLines[i].select(canvas)

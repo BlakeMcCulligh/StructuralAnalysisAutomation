@@ -6,15 +6,15 @@ distributedLoads = np.array([[0,0,0]]) # distributed Loads (xStart, xEnd, Mag)
 linearLoads = np.array([[0,0,0,0]]) # Distributed loads with linear variation (xStart, XEnd, startMeg, endMeg)
 
 #input
-span = 17 # length of beam
-A = 3 # distance to support A
-B = 13 # distance to support B
+span = 2.6416 # length of beam
+A = 0 # distance to support A
+B = 2 # distance to support B
 
 # Force Data
-pointLoads = np.append(pointLoads, [np.array([6,0,-90])], axis=0)
-pointMoments = np.append(pointMoments, [np.array([15,50])], axis=0)
-distributedLoads = np.append(distributedLoads, [np.array([8,17,-10])], axis=0)
-linearLoads = np.append(linearLoads, [np.array([0,16,-10,0])], axis=0)
+#pointLoads = np.append(pointLoads, [np.array([6,0,-90])], axis=0)
+#pointMoments = np.append(pointMoments, [np.array([15,50])], axis=0)
+distributedLoads = np.append(distributedLoads, [np.array([1.2196,2.6415,1.2])], axis=0)
+linearLoads = np.append(linearLoads, [np.array([1.2196,2.6415,0,14.931])], axis=0)
 
 #
 # Defaults and initialisation
@@ -282,8 +282,8 @@ if nLDL>0:
         bendingMoments = np.append(bendingMoments, [Moment], axis = 0)
 
 
-#print('The vertical reaction at A is {one} kN'.format(one = round(reactions[0],4)))
-#print('The vertical reaction at B is {one} kN'.format(one = round(reactions[2],4)))
+print('The vertical reaction at A is {one} kN'.format(one = round(reactions[0],4)))
+print('The vertical reaction at B is {one} kN'.format(one = round(reactions[2],4)))
 #print('The horizontal reaction at A is {one} kN'.format(one = round(reactions[1],4)))
 
 #
