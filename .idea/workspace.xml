@@ -5,13 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d2077732-55bb-40ea-8403-1425674c92c0" name="Changes" comment="Error Fixes">
-      <change beforePath="$PROJECT_DIR$/.idea/StructuralAnalysisAutomation.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/StructuralAnalysisAutomation.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/BeamAnalysis/BeamDiagrams.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/2D drawing/Relations.py" beforeDir="false" afterPath="$PROJECT_DIR$/2D drawing/Relations.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/2D drawing/SelectTool.py" beforeDir="false" afterPath="$PROJECT_DIR$/2D drawing/SelectTool.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/2D drawing/SketchObjects.py" beforeDir="false" afterPath="$PROJECT_DIR$/2D drawing/SketchObjects.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BeamAnalysis/CrossSection.py" beforeDir="false" afterPath="$PROJECT_DIR$/BeamAnalysis/CrossSection.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/BeamAnalysis/ShearMomentCalculator.py" beforeDir="false" afterPath="$PROJECT_DIR$/BeamAnalysis/ShearMomentCalculator.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -55,6 +50,7 @@
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
     "ModuleVcsDetector.initialDetectionPerformed": "true",
+    "Python.BeamDiagrams.executor": "Run",
     "Python.CrossSection.executor": "Run",
     "Python.DrawLine.executor": "Run",
     "Python.Frame.executor": "Run",
@@ -262,7 +258,15 @@
       <option name="project" value="LOCAL" />
       <updated>1754785811483</updated>
     </task>
-    <option name="localTasksCounter" value="19" />
+    <task id="LOCAL-00019" summary="Error Fixes">
+      <option name="closed" value="true" />
+      <created>1756909428686</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1756909428686</updated>
+    </task>
+    <option name="localTasksCounter" value="20" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
