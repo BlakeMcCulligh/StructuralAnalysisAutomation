@@ -11,10 +11,10 @@ A = 0 # distance to support A
 B = 2 # distance to support B
 
 # Force Data
-#pointLoads = np.append(pointLoads, [np.array([6,0,-90])], axis=0)
+pointLoads = np.append(pointLoads, [np.array([6,0,-90])], axis=0)
 #pointMoments = np.append(pointMoments, [np.array([15,50])], axis=0)
-distributedLoads = np.append(distributedLoads, [np.array([1.2196,2.6415,1.2])], axis=0)
-linearLoads = np.append(linearLoads, [np.array([1.2196,2.6415,0,14.931])], axis=0)
+#distributedLoads = np.append(distributedLoads, [np.array([1.2196,2.6415,1.2])], axis=0)
+#linearLoads = np.append(linearLoads, [np.array([1.2196,2.6415,0,14.931])], axis=0)
 
 #
 # Defaults and initialisation
