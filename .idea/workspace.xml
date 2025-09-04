@@ -4,8 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d2077732-55bb-40ea-8403-1425674c92c0" name="Changes" comment="Point Load Fixed">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    <list default="true" id="d2077732-55bb-40ea-8403-1425674c92c0" name="Changes" comment="Uniformly Distributed Loads Added">
       <change beforePath="$PROJECT_DIR$/BeamAnalysis/BeamDiagrams.py" beforeDir="false" afterPath="$PROJECT_DIR$/BeamAnalysis/BeamDiagrams.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -282,7 +281,15 @@
       <option name="project" value="LOCAL" />
       <updated>1756946708443</updated>
     </task>
-    <option name="localTasksCounter" value="22" />
+    <task id="LOCAL-00022" summary="Uniformly Distributed Loads Added">
+      <option name="closed" value="true" />
+      <created>1756948977275</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1756948977275</updated>
+    </task>
+    <option name="localTasksCounter" value="23" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -319,7 +326,8 @@
     <MESSAGE value="Direct Stiffness Method for Frames" />
     <MESSAGE value="Error Fixes" />
     <MESSAGE value="Point Load Fixed" />
-    <option name="LAST_COMMIT_MESSAGE" value="Point Load Fixed" />
+    <MESSAGE value="Uniformly Distributed Loads Added" />
+    <option name="LAST_COMMIT_MESSAGE" value="Uniformly Distributed Loads Added" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/StructuralAnalysisAutomation$WoodJoint.coverage" NAME="WoodJoint Coverage Results" MODIFIED="1750958696082" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />

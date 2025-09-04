@@ -1,21 +1,7 @@
-#
-# Plotting shear diagram
-#
-#import plotly as py
 import plotly.graph_objs as go
 import numpy as np
 
-class Change:
-    def __init__(self,Loc,Type,Mag):
-        self.Loc = Loc
-        self.Type = Type
-        self.Mag = Mag
-
-        self.shearPre = None
-        self.shearPost = None
-
 class Beam:
-
     def __init__(self):
         self.length = None
 
@@ -32,6 +18,7 @@ class Beam:
         self.shear = []
         self.moment = []
 
+    # solve the reactions at the supports
     def Reactions(self):
 
     # Moment Equation
@@ -62,7 +49,7 @@ class Beam:
 
         self.supportMag[0] = -(Fy + self.supportMag[1])
 
-    def GetM(self, dist, dif):
+    def GetM(self, dist):
         M = 0
 
         # Supports
@@ -95,7 +82,7 @@ class Beam:
         distUpTo = 0
         for i in range(self.numSections):
             distUpTo += dif
-            M = self.GetM(distUpTo, dif)
+            M = self.GetM(distUpTo)
             self.moment.append(M)
 
     def GetFyChange(self, dist, dif):
@@ -119,13 +106,12 @@ class Beam:
 
                 if self.UniDistLoadLoc[i * 2] < (dist - dif) and self.UniDistLoadLoc[i * 2 + 1] > dist:
                     Fy += self.UniDistLoadMag[i] * dif
-                elif self.UniDistLoadLoc[i * 2] < dist and self.UniDistLoadLoc[i * 2 + 1] > dist:
+                elif self.UniDistLoadLoc[i * 2] < dist < self.UniDistLoadLoc[i * 2 + 1]:
                     Fy += self.UniDistLoadMag[i] * (dist - self.UniDistLoadLoc[i * 2])
                 else:
                     Fy += self.UniDistLoadMag[i] * (self.UniDistLoadLoc[i * 2 + 1] - (dist - dif))
 
         return Fy
-
 
     def shearSolve(self):
         dif = self.length/self.numSections
