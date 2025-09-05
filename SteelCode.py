@@ -112,6 +112,7 @@ def getBendingResistanceLaterallySupported(bClass, Z, S, Fy):
         Mr = 0.9*Z*Fy
     else:
         Mr = 0.9*S*Fy
+    return Mr
 
 def getBendingResistanceLaterallyUnSupported(bClass, memberType, numSymmetry, L, Z, S, Iy, Ix, J, Cw, b, t, h, w, d, Mmax, Ma, Mb, Mc, E, G, Fy):
     w2 = (4*Mmax)/(Mmax**2+4*Ma**2+7*Mb**2+4*Mc**2)**0.5
@@ -165,6 +166,7 @@ def getBendingResistanceLaterallyUnSupported(bClass, memberType, numSymmetry, L,
             Bx = 0.9*(d-t)*(1-(Iy/Ix)**2)
             Mu = w2*pi**2*E*Iy/(2*L**2)*(Bx+(Bx**2+4*(G*J*L**2/(pi**2*E*Iy)+Cw/Iy))**0.5)
             Mr = 0.9*Mu
+    return Mr
 
 def getAxialDef(A, L, F, E):
     delta = ((A/F)/E)*L

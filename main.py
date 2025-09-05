@@ -1,7 +1,6 @@
 from SteelCrossSection import getCrossSectionProperties
 import SteelCode
 import pandas as pd
-import openpyxl
 
 massWeight = 1
 deformationWeight = 1
@@ -27,14 +26,18 @@ TensionUtilization = []
 mass = []
 
 for i in range(len(memberType)):
+    Fy = 210
+    n = 1.34
+    E = 200000
+    G = 79300
     [A, Ix, Iy, Sx, Sy, Zx, Zy, J, Cw, rx, ry, xo, yo] = getCrossSectionProperties(memberType[i],d[i],b[i],t[i],w[i])
-    numSymmetry = Steel.getNumSymmetry(memberType[i])
+    numSymmetry = SteelCode.getNumSymmetry(memberType[i])
     mass.append(A*785)
-    Cr.append(Steel.getCompressionResistance(numSymmetry, K, L, rx, ry, xo, yo, A, J, Cw))
+    Cr.append(SteelCode.getCompressionResistance(numSymmetry, K, L, rx, ry, xo, yo, A, J, Cw, Fy, n, E, G))
     CompressionUtilization.append(F/Cr[i])
-    Tr.append(Steel.getTensionResistance(A))
+    Tr.append(SteelCode.getTensionResistance(A, E))
     TensionUtilization.append(F/Tr[i])
-    deformation.append(Steel.getAxialDef(A, L, F))
+    deformation.append(SteelCode.getAxialDef(A, L, F, E))
 
 SectionData["Cr"] = Cr
 SectionData["Tr"] = Tr

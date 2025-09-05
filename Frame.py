@@ -173,10 +173,3 @@ class Frame(object):
                 jointForces1[2] = jointForces1[2] + self.listMembers[i].ForceY
                 jointForces2[2] = jointForces2[2] + self.listMembers[i].ForceY
 
-
-
-
-
-
-
-

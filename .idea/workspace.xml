@@ -4,8 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d2077732-55bb-40ea-8403-1425674c92c0" name="Changes" comment="Uniformly Distributed Loads Added">
-      <change beforePath="$PROJECT_DIR$/BeamAnalysis/BeamDiagrams.py" beforeDir="false" afterPath="$PROJECT_DIR$/BeamAnalysis/BeamDiagrams.py" afterDir="false" />
+    <list default="true" id="d2077732-55bb-40ea-8403-1425674c92c0" name="Changes" comment="Cleaning Up Code">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DirectStiffnessMethod/Frame.py" beforeDir="false" afterPath="$PROJECT_DIR$/DirectStiffnessMethod/Frame.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ExportSolution.py" beforeDir="false" afterPath="$PROJECT_DIR$/DirectStiffnessMethod/Combined.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Frame.py" beforeDir="false" afterPath="$PROJECT_DIR$/Frame.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SteelCode.py" beforeDir="false" afterPath="$PROJECT_DIR$/SteelCode.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -50,11 +55,13 @@
   &quot;keyToString&quot;: {
     &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
     &quot;Python.BeamDiagrams.executor&quot;: &quot;Run&quot;,
+    &quot;Python.Combined.executor&quot;: &quot;Run&quot;,
     &quot;Python.CrossSection.executor&quot;: &quot;Run&quot;,
     &quot;Python.DrawLine.executor&quot;: &quot;Run&quot;,
     &quot;Python.Frame.executor&quot;: &quot;Run&quot;,
     &quot;Python.Frame2.executor&quot;: &quot;Run&quot;,
     &quot;Python.Relations.executor&quot;: &quot;Run&quot;,
+    &quot;Python.SectionOptimizer.executor&quot;: &quot;Run&quot;,
     &quot;Python.SelectTool.executor&quot;: &quot;Run&quot;,
     &quot;Python.ShearMomentCalculator.executor&quot;: &quot;Run&quot;,
     &quot;Python.SketchObjects.executor&quot;: &quot;Run&quot;,
@@ -289,7 +296,15 @@
       <option name="project" value="LOCAL" />
       <updated>1756948977275</updated>
     </task>
-    <option name="localTasksCounter" value="23" />
+    <task id="LOCAL-00023" summary="Cleaning Up Code">
+      <option name="closed" value="true" />
+      <created>1756949500486</created>
+      <option name="number" value="00023" />
+      <option name="presentableId" value="LOCAL-00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1756949500486</updated>
+    </task>
+    <option name="localTasksCounter" value="24" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -327,7 +342,8 @@
     <MESSAGE value="Error Fixes" />
     <MESSAGE value="Point Load Fixed" />
     <MESSAGE value="Uniformly Distributed Loads Added" />
-    <option name="LAST_COMMIT_MESSAGE" value="Uniformly Distributed Loads Added" />
+    <MESSAGE value="Cleaning Up Code" />
+    <option name="LAST_COMMIT_MESSAGE" value="Cleaning Up Code" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/StructuralAnalysisAutomation$WoodJoint.coverage" NAME="WoodJoint Coverage Results" MODIFIED="1750958696082" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
